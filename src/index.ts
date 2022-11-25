@@ -15,7 +15,8 @@ app.use(bodyParser.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
   const { rows } = await pool.query("SELECT NOW()");
-  res.send(`Hello, Farm World! The time from the DB is ${rows[0].now}`);
+  // res.send(`Hello, Farm World! The time from the DB is ${rows[0].now}`);
+  res.sendFile('index.html');
 });
 
 app.listen(port, () => {
