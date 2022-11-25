@@ -5,7 +5,7 @@
   Copyright (c) 2017-2019 Jean-Marc VIGLINO,
   released under CeCILL-B (french BSD like) licence: http://www.cecill.info/
 -->
-  <title>ol-ext: Multi select control</title>
+  <title>Illinois Drainage Districts Map</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
   <meta name="description" content="Control to select features by attributes." />
@@ -32,25 +32,23 @@
 
 </head>
 <body >
-  <a href="https://github.com/Viglino/ol-ext" class="icss-github-corner"><i></i></a>
-  <a href="../../index.html">
-    <h1>ol-ext: Select control</h1>
+    <h1>Illinois Drainage Districts Map</h1>
   </a>
 
   <div class="info">
-    <i>ol.control.SelectMutil</i> is a container that manage other control Select.
+    <i>IADD</i> 
     <ul>
       <li>
-        You can add it Select controls of different type (condition, checkbox, radio, select or fulltext).
+        Best Attempt to Digitize Illinois Drianage Districts
       </li>
       <li>
-        A <i>select</i> event is fired when features are selected. 
+        Find your District! Questions: patrick@agrowhere.com 
       </li>
     </ul>
   </div>
 
   <!-- DIV pour la carte -->
-  <div id="map" style="width:600px; height:400px;"></div>
+  <div id="map" style="width:600px; height:800px;"></div>
 
   <div class="options" style="max-width:20em;">
     <h2>Options:</h2>
@@ -73,8 +71,8 @@
   var map = new ol.Map({
     target: 'map',
     view: new ol.View({
-      zoom: 5,
-      center: [166326, 5992663]
+      zoom: 6.5,
+      center: [-9905516, 4889264]
     }),
     layers: layers
   });
