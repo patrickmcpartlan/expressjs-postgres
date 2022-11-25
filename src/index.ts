@@ -15,7 +15,12 @@ app.use(bodyParser.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
   const { rows } = await pool.query("SELECT NOW()");
-  res.sendFile('index.html', {root: __dirname });
+  res.sendFile('index.html', {root: './src/'});
+
+  // C:\Users\patri\Documents\GitHub\expressjs-postgres\src\index.html
+  // src\index.html
+
+
   // res.sendFile('index.html', { root: path.join(__dirname, '../src') });
   // res.sendFile('src/index.html');
 
