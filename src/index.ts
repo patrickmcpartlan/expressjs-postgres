@@ -15,7 +15,7 @@ app.use(bodyParser.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
   const { rows } = await pool.query("SELECT NOW()");
-  res.sendFile('index.html', {root: './src/'});
+  res.sendFile('main.html', {root: './src/'});
 
   // C:\Users\patri\Documents\GitHub\expressjs-postgres\src\index.html
   // src\index.html
