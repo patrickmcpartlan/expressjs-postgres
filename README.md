@@ -22,7 +22,7 @@ to a Railway PostgreSQL database.
 
 ## 💁‍♀️ How to use
 
-- Install dependencies `yarn`
+- Install dependencies `yarn` 
 - [Create a Railway project with the Postgres plugin](https://dev.new)
 - Connect to your Railway project `railway link`
 - Start the server `railway run yarn dev`
