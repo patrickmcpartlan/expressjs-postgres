@@ -16,6 +16,7 @@ app.use(bodyParser.text({ type: "text/html" }));
 app.get("/", async (req, res) => {
   const { rows } = await pool.query("SELECT NOW()");
   res.sendFile('index.html', {root: __dirname });
+  // res.sendFile('index.html', { root: path.join(__dirname, '../src') });
   // res.sendFile('src/index.html');
 
   // app.get('/', function(req, res) {
