@@ -79,22 +79,23 @@
 
   // GeoJSON layer
   var vectorSource = new ol.source.Vector({
-    url: '../data/fond_guerre.geojson',
+    url: '../data/IADD_Output.geojson',
     format: new ol.format.GeoJSON(),
 		attributions: [ "&copy; <a href='https://data.culture.gouv.fr/explore/dataset/fonds-de-la-guerre-14-18-extrait-de-la-base-memoire'>data.culture.gouv.fr</a>" ]
   });
 
   map.addLayer(new ol.layer.Vector({
-    name: 'Departements',
+    name: 'Drainage Districts Boundaries',
     source: vectorSource,
     style: function(f) {
       return new ol.style.Style({ 
-        image: new ol.style.RegularShape({
-          radius: 5,
-          points: 4,
-          fill: new ol.style.Fill({ color: [255,128,0,.5] }),
-          stroke: new ol.style.Stroke({ color: [255,128,0], width:1 })  
-        })
+        fill: new ol.style.Fill({
+        color: 'rgba(255, 255, 255, 0.0)'
+        }),
+      stroke: new ol.style.Stroke({
+      color: '#0000ff',
+      width: 4
+  })
       })
     }
   }));
