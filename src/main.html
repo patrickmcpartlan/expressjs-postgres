@@ -67,23 +67,28 @@
 		})
   ]
 
-  // The map
-  var map = new ol.Map({
-    target: 'map',
-    view: new ol.View({
-      zoom: 6.5,
-      center: [-9905516, 4889264]
-    }),
-    layers: layers
-  });
+
 
   var districts = new ol.layer.Vector({
       title: 'Drainage Districts',
       source: new ol.source.Vector({
          url: './src/IADD_Output.geojson',
-         format: new ol.format.GeoJSON()
+         format: new ol.format.GeoJSON(),
+    style: function(f) {
+      return new ol.style.Style({ 
+        fill: new ol.style.Fill({
+        color: 'rgba(255, 255, 255, 0.0)'
+        }),
+      stroke: new ol.style.Stroke({
+      color: '#0000ff',
+      width: 4
+  })
+      })
+    }
+         
       })
   })
+  console.log(5-3); 
   // GeoJSON layer
   // var vectorSource = new ol.source.Vector({
   //   url: '/data/IADD_Output.geojson',
@@ -107,7 +112,16 @@
   //   }
   // }));
 
-  map.addLayer(districts); 
+    // The map
+    var map = new ol.Map({
+    target: 'map',
+    view: new ol.View({
+      zoom: 6.5,
+      center: [-9905516, 4889264]
+    }),
+    layers: layers, districts,
+  });
+
 
   // Select  interaction
   var selecti = new ol.interaction.Select({
