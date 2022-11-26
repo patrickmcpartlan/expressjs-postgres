@@ -23,7 +23,6 @@
       })
   });
   console.log(5-3); 
-  console.log(ecoRegions);
 
 
     // The map
@@ -87,4 +86,4 @@
   // }));
 
 
-
+console.log(vectorSource);
