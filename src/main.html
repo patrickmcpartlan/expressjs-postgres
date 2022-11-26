@@ -77,28 +77,37 @@
     layers: layers
   });
 
-  // GeoJSON layer
-  var vectorSource = new ol.source.Vector({
-    url: '/data/IADD_Output.geojson',
-    format: new ol.format.GeoJSON(),
-		attributions: [ "&copy; <a href='https://data.culture.gouv.fr/explore/dataset/fonds-de-la-guerre-14-18-extrait-de-la-base-memoire'>data.culture.gouv.fr</a>" ]
-  });
-
-  map.addLayer(new ol.layer.Vector({
-    name: 'Drainage Districts Boundaries',
-    source: vectorSource,
-    style: function(f) {
-      return new ol.style.Style({ 
-        fill: new ol.style.Fill({
-        color: 'rgba(255, 255, 255, 0.0)'
-        }),
-      stroke: new ol.style.Stroke({
-      color: '#0000ff',
-      width: 4
-  })
+  var districts = new ol.layer.Vector({
+      title: 'Drainage Districts',
+      source: new ol.source.Vector({
+         url: 'IADD_Output.geojson',
+         format: new ol.format.GeoJSON()
       })
-    }
-  }));
+  })
+  // GeoJSON layer
+  // var vectorSource = new ol.source.Vector({
+  //   url: '/data/IADD_Output.geojson',
+  //   format: new ol.format.GeoJSON(),
+	// 	attributions: [ "&copy; <a href='https://data.culture.gouv.fr/explore/dataset/fonds-de-la-guerre-14-18-extrait-de-la-base-memoire'>data.culture.gouv.fr</a>" ]
+  // });
+
+  // map.addLayer(new ol.layer.Vector({
+  //   name: 'Drainage Districts Boundaries',
+  //   source: vectorSource,
+  //   style: function(f) {
+  //     return new ol.style.Style({ 
+  //       fill: new ol.style.Fill({
+  //       color: 'rgba(255, 255, 255, 0.0)'
+  //       }),
+  //     stroke: new ol.style.Stroke({
+  //     color: '#0000ff',
+  //     width: 4
+  // })
+  //     })
+  //   }
+  // }));
+
+  map.addLayer(districts); 
 
   // Select  interaction
   var selecti = new ol.interaction.Select({
