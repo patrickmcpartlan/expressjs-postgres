@@ -70,7 +70,7 @@
 
 
   var ecoRegions = new ol.layer.Vector({
-      title: 'Drainage Districts',
+      title: 'EcoRegions',
       source: new ol.source.Vector({
          url: "https://openlayers.org/data/vector/ecoregions.json",
          projection: 'EPSG:4326',
@@ -98,7 +98,7 @@
 
     // GeoJSON layer
     var vectorSource = new ol.source.Vector({
-        url: 'IADD_Output.geojson',
+        url: './src/IADD_output.geojson',
         format: new ol.format.GeoJSON(),
         projection: 'EPSG:4326',
 
@@ -148,6 +148,8 @@
 
 
 console.log(vectorSource);
+console.log("HappyHappy")
+console.log(ecoRegions);
 
   </script>
 
