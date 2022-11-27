@@ -11,9 +11,7 @@
   <meta name="description" content="Control to select features by attributes." />
   <meta name="keywords" content="openlayers, control, select, vector, feature, attribute, properties" />
 
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  
   <!-- jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 
@@ -22,9 +20,7 @@
   <script type="text/javascript" src="https://openlayers.org/en/latest/legacy/ol.js"></script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL,Object.assign"></script>
   
-  ol-ext
-  <link rel="stylesheet" href="../../dist/ol-ext.css" />
-  <link rel="stylesheet" href="../../dist/ol-ext.css" />
+
   <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
   <script src="https://unpkg.com/elm-pep"></script>
 
@@ -96,10 +92,11 @@
               //   });
 
 
-  var ecoRegions = new ol.layer.Vector({
-      title: 'Drainage Districts',
+  var drainageDistricts = new ol.layer.Vector({
+      title: 'DrainageDistricts',
       source: new ol.source.Vector({
-         url: "https://openlayers.org/data/vector/ecoregions.json",
+        //  url: "https://openlayers.org/data/vector/ecoregions.json",
+         url: "https://objects-us-east-1.dream.io/illinois-drainage-districts/OutputIADD.json",
          projection: 'EPSG:4326',
          format: new ol.format.GeoJSON(),
   style: {
@@ -111,25 +108,40 @@
       })
   });
 
-  var drainDistricts = new ol.layer.Vector({
-      title: 'Drainage Districts',
-      source: new ol.source.Vector({
-        //  url: "./IADD_Output.geojson", //Local Works
-         url: "IADD_Output.json", // Local works too
-        //  url: "/IADD_Output.geojson",
-
-
-         projection: 'EPSG:4326',
-         format: new ol.format.GeoJSON(),
-  style: {
-    'stroke-width': 0.75,
-    'stroke-color': 'blue',
-    'fill-color': 'rgba(100,100,100,0.25)',
-  },
+  // var usaceLevee = new ol.layer.Vector({
+  //     title: 'Leves',
+  //     source: new ol.source.Vector({
+  //        url: "https://levees.sec.usace.army.mil:443/api-local/leveed-areas?system_id=5105010001&embed=geometry&format=geo",
+  //        projection: 'EPSG:4326',
+  //        format: new ol.format.GeoJSON(),
+  // style: {
+  //   'stroke-width': 0.25,
+  //   'stroke-color': 'green',
+  //   'fill-color': 'rgba(100,100,100,0.25)',
+  // },
          
-      })
-  });
-  console.log(5-3); 
+  //     })
+  // });
+
+  // var drainDistricts = new ol.layer.Vector({
+  //     title: 'Drainage Districts',
+  //     source: new ol.source.Vector({
+  //       //  url: "./IADD_Output.geojson", //Local Works
+  //        url: "IADD_Output.json", // Local works too
+  //       //  url: "/IADD_Output.geojson",
+
+
+  //        projection: 'EPSG:4326',
+  //        format: new ol.format.GeoJSON(),
+  // style: {
+  //   'stroke-width': 0.75,
+  //   'stroke-color': 'blue',
+  //   'fill-color': 'rgba(100,100,100,0.25)',
+  // },
+         
+  //     })
+  // });
+  // console.log(5-3); 
 
 
     // The map
@@ -142,31 +154,10 @@
         layers: layers,
       });  
 
-map.addLayer(drainDistricts)
-map.addLayer(ecoRegions)
+// map.addLayer(drainDistricts)
+map.addLayer(drainageDistricts)
+// map.addLayer(usaceLevee)
 
-  // GeoJSON layer
-  // var vectorSource = new ol.source.Vector({
-  //   url: '/data/IADD_Output.geojson',
-  //   format: new ol.format.GeoJSON(),
-	// 	attributions: [ "&copy; <a href='https://data.culture.gouv.fr/explore/dataset/fonds-de-la-guerre-14-18-extrait-de-la-base-memoire'>data.culture.gouv.fr</a>" ]
-  // });
-
-  // map.addLayer(new ol.layer.Vector({
-  //   name: 'Drainage Districts Boundaries',
-  //   source: vectorSource,
-  //   style: function(f) {
-  //     return new ol.style.Style({ 
-  //       fill: new ol.style.Fill({
-  //       color: 'rgba(255, 255, 255, 0.0)'
-  //       }),
-  //     stroke: new ol.style.Stroke({
-  //     color: '#0000ff',
-  //     width: 4
-  // })
-  //     })
-  //   }
-  // }));
 
 
 console.log("excellent")
