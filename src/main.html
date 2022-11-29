@@ -92,11 +92,14 @@
               //   });
 
 
-  var drainageDistricts = new ol.layer.Vector({
-      title: 'DrainageDistricts',
+  var dd2 = new ol.layer.Vector({
+      title: 'dd2',
       source: new ol.source.Vector({
         //  url: "https://openlayers.org/data/vector/ecoregions.json",
-         url: "https://objects-us-east-1.dream.io/illinois-drainage-districts/OutputIADD.json",
+        // url: "https://objects-us-east-1.dream.io/illinois-drainage-districts/OutputIADD.json"
+        // url: "https://api.jsonbin.io/v3/b/6383d070a3c728450ed8a934",
+        // url: "https://web.postman.co/workspace/My-Workspace~c36cb3b9-af8f-4f7c-847c-84de6b0e53c0/request/24640274-c8a7a5c0-2133-412e-a8bc-f3bfddbde5f7",
+        url: "IADD_Output.json",
          projection: 'EPSG:4326',
          format: new ol.format.GeoJSON(),
   style: {
@@ -107,6 +110,26 @@
          
       })
   });
+
+  var drainageDistricts = new ol.layer.Vector({
+      title: 'DrainageDistricts',
+      source: new ol.source.Vector({
+        //  url: "https://openlayers.org/data/vector/ecoregions.json",
+        // url: "https://objects-us-east-1.dream.io/illinois-drainage-districts/OutputIADD.json"
+        // url: "https://api.jsonbin.io/v3/b/6383d070a3c728450ed8a934",
+        // url: "https://web.postman.co/workspace/My-Workspace~c36cb3b9-af8f-4f7c-847c-84de6b0e53c0/request/24640274-c8a7a5c0-2133-412e-a8bc-f3bfddbde5f7",
+        url: "https://github.com/patrickmcpartlan/expressjs-postgres-ol/blob/main/src/IADD_Output.json",
+         projection: 'EPSG:4326',
+         format: new ol.format.GeoJSON(),
+  style: {
+    'stroke-width': 0.75,
+    'stroke-color': 'white',
+    'fill-color': 'rgba(100,100,100,0.25)',
+  },
+         
+      })
+  });
+
 
   // var usaceLevee = new ol.layer.Vector({
   //     title: 'Leves',
@@ -156,6 +179,7 @@
 
 // map.addLayer(drainDistricts)
 map.addLayer(drainageDistricts)
+map.addLayer(dd2)
 // map.addLayer(usaceLevee)
 
 
