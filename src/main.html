@@ -24,7 +24,7 @@
   <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
   <script src="https://unpkg.com/elm-pep"></script>
 
-  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="style.css"/>
 
 </head>
 <body >
@@ -33,14 +33,7 @@
 
   <div class="info">
     <i>IADD</i> 
-    <ul>
-      <li>
-        Best Attempt to Digitize Illinois Drianage Districts
-      </li>
-      <li>
-        Find your District! Questions: patrick@agrowhere.com 
-      </li>
-    </ul>
+   
   </div>
 
   <!-- DIV pour la carte -->
@@ -67,9 +60,10 @@
 const key = 'iimeX6GcAQ3xmXbKnkPT';
 
 
+
   const layerExDD = new ol.layer.Vector({
   source: new ol.source.Vector({
-    url: `https://api.maptiler.com/data/0a56cfe7-d440-4539-9216-8025be410d26/features.json?key=${key}`,
+    url: `https://api.maptiler.com/data/6348a5ac-363f-496e-8c05-ee82da6b7cb2/features.json?key=${key}`,
     format: new ol.format.GeoJSON(),
   }),
   
@@ -100,28 +94,12 @@ const key = 'iimeX6GcAQ3xmXbKnkPT';
   //     })
   // });
 
-  // var drainDistricts = new ol.layer.Vector({
-  //     title: 'Drainage Districts',
-  //     source: new ol.source.Vector({
-  //       //  url: "./IADD_Output.geojson", //Local Works
-  //        url: "IADD_Output.json", // Local works too
-  //       //  url: "/IADD_Output.geojson",
-
-
-  //        projection: 'EPSG:4326',
-  //        format: new ol.format.GeoJSON(),
-  // style: {
-  //   'stroke-width': 0.75,
-  //   'stroke-color': 'blue',
-  //   'fill-color': 'rgba(100,100,100,0.25)',
-  // },
-         
-  //     })
-  // });
-  // console.log(5-3); 
 
 
     // The map
+
+
+
     var map = new ol.Map({
         target: 'map',
         view: new ol.View({
@@ -134,6 +112,16 @@ const key = 'iimeX6GcAQ3xmXbKnkPT';
 // map.addLayer(drainDistricts)
 map.addLayer(layerExDD)
 // map.addLayer(usaceLevee)
+
+
+ // Select  interaction
+ var select = new ol.interaction.Select({
+    hitTolerance: 5,
+    multi: true,
+    condition: ol.events.condition.singleClick
+  });
+  map.addInteraction(select);
+
 
 
 
